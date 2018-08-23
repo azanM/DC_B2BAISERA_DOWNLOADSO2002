@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="CUSTOM_DOWNLOAD_TRANSACTION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Acknowledge" Type="bit" />
+    <Property Name="TicketNo" Type="varchar" MaxLength="1000" />
+    <Property Name="Message" Type="varchar" MaxLength="1000" />
+    <Property Name="CreatedWho" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedWhen" Type="datetime" />
+    <Property Name="ChangedWho" Type="varchar" MaxLength="50" />
+    <Property Name="ChangedWhen" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CUSTOM_DOWNLOAD_TRANSACTIONDATA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionID" Type="int" Nullable="false" />
+    <Property Name="AIID" Type="int" />
+    <Property Name="TransGUID" Type="varchar" MaxLength="40" />
+    <Property Name="DocumentNumber" Type="varchar" MaxLength="30" />
+    <Property Name="FileType" Type="varchar" MaxLength="20" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="15" />
+    <Property Name="DestinationUser" Type="varchar" MaxLength="10" />
+    <Property Name="Key1" Type="varchar" MaxLength="20" />
+    <Property Name="Key2" Type="varchar" MaxLength="20" />
+    <Property Name="Key3" Type="varchar" MaxLength="20" />
+    <Property Name="DataLength" Type="int" />
+    <Property Name="TransStatus" Type="varchar" MaxLength="50" />
+    <Property Name="LogMessage" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedWho" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedWhen" Type="datetime" />
+    <Property Name="ChangedWho" Type="varchar" MaxLength="50" />
+    <Property Name="ChangedWhen" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CUSTOM_DOWNLOAD_TRANSACTIONDATADETAIL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionDataID" Type="int" Nullable="false" />
+    <Property Name="Data" Type="varchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="CUSTOM_LOG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WebServiceName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MethodName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Acknowledge" Type="bit" Nullable="false" />
+    <Property Name="TicketNo" Type="varchar" MaxLength="1000" />
+    <Property Name="Message" Type="varchar" MaxLength="200" />
+    <Property Name="FileType" Type="varchar" MaxLength="10" />
+    <Property Name="CreatedWho" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedWhen" Type="datetime" Nullable="false" />
+    <Property Name="ChangedWho" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ChangedWhen" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CUSTOM_S02002">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionDataID" Type="int" />
+    <Property Name="PONumber" Type="varchar" MaxLength="50" />
+    <Property Name="VersionPOSERA" Type="decimal" Precision="3" Scale="0" />
+    <Property Name="DataVersion" Type="decimal" Precision="3" Scale="0" />
+    <Property Name="StatusPOSERA" Type="varchar" MaxLength="1" />
+    <Property Name="RejectRevisedPOSERA" Type="varchar" MaxLength="500" />
+    <Property Name="DocumentNo" Type="varchar" MaxLength="15" />
+    <Property Name="AIMaterialNumber" Type="varchar" MaxLength="18" />
+    <Property Name="SERAMaterialNumber" Type="varchar" MaxLength="50" />
+    <Property Name="SERAMaterialDescription" Type="varchar" MaxLength="40" />
+    <Property Name="AIColor" Type="varchar" MaxLength="30" />
+    <Property Name="SERAColor" Type="varchar" MaxLength="20" />
+    <Property Name="QuotationNo" Type="varchar" MaxLength="15" />
+    <Property Name="SalesOrderNo" Type="varchar" MaxLength="15" />
+    <Property Name="SalesOrderStatus" Type="bit" />
+    <Property Name="DPPByVendor" Type="float" />
+    <Property Name="PPNByVendor" Type="float" />
+    <Property Name="BBNPriceByVendor" Type="float" />
+    <Property Name="Currency" Type="varchar" MaxLength="4" />
+    <Property Name="ChassisNumberByVendor" Type="varchar" MaxLength="18" />
+    <Property Name="MachineNumberByVendor" Type="varchar" MaxLength="30" />
+    <Property Name="CBUCKD" Type="varchar" MaxLength="3" />
+    <Property Name="Year" Type="int" />
+    <Property Name="FactureDONumber" Type="varchar" MaxLength="15" />
+    <Property Name="BillingStatus" Type="bit" />
+    <Property Name="FactureDODate" Type="datetime" />
+    <Property Name="NoFakturKendaraan" Type="varchar" MaxLength="22" />
+    <Property Name="TanggalFakturKendaraan" Type="datetime" />
+    <Property Name="CancellationReason" Type="varchar" MaxLength="500" />
+    <Property Name="ActualDateDeliveryUnit" Type="datetime" />
+    <Property Name="BSTKBNo" Type="varchar" MaxLength="25" />
+    <Property Name="LicensePlateByVendor" Type="varchar" MaxLength="10" />
+    <Property Name="STNKDateByVendor" Type="datetime" />
+    <Property Name="RevisiSTNK" Type="datetime" />
+    <Property Name="NoSertifikat" Type="varchar" MaxLength="50" />
+    <Property Name="TglSertifikat" Type="datetime" />
+    <Property Name="NoFormulirA" Type="varchar" MaxLength="40" />
+    <Property Name="TglFormulirA" Type="datetime" />
+    <Property Name="NoSertifikatRegUjiTipe" Type="varchar" MaxLength="50" />
+    <Property Name="ActualDeliveryBPKBDate" Type="datetime" />
+    <Property Name="NamaPenerima" Type="varchar" MaxLength="40" />
+    <Property Name="AlamatPenerima" Type="varchar" MaxLength="40" />
+    <Property Name="BPKBNumber" Type="varchar" MaxLength="11" />
+    <Property Name="RemarksBPKB" Type="varchar" MaxLength="255" />
+    <Property Name="RevisiBPKB" Type="datetime" />
+    <Property Name="dibuatOleh" Type="varchar" MaxLength="50" />
+    <Property Name="dibuatTanggal" Type="datetime" />
+    <Property Name="diubahOleh" Type="varchar" MaxLength="50" />
+    <Property Name="diubahTanggal" Type="datetime" />
+    <Property Name="xmlStatus" Type="varchar" MaxLength="50" />
+    <Property Name="xmlCreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="xmlCreatedDate" Type="datetime" />
+    <Property Name="xmlModifiedBy" Type="varchar" MaxLength="100" />
+    <Property Name="xmlModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CUSTOM_S02007">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionDataID" Type="int" />
+    <Property Name="PONUMBER" Type="varchar" MaxLength="50" />
+    <Property Name="VERSIONPOSERA" Type="int" />
+    <Property Name="BILLINGNO" Type="varchar" MaxLength="50" />
+    <Property Name="INVOICERECEIPTDATE" Type="datetime" />
+    <Property Name="DATAVERSION" Type="int" />
+    <Property Name="payPlan" Type="datetime" />
+    <Property Name="dibuatOleh" Type="varchar" MaxLength="50" />
+    <Property Name="dibuatTanggal" Type="datetime" />
+    <Property Name="diubahOleh" Type="varchar" MaxLength="50" />
+    <Property Name="diubahTanggal" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CUSTOM_USER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="200" />
+    <Property Name="Password" Type="varchar" MaxLength="200" />
+    <Property Name="UserCode" Type="varchar" MaxLength="200" />
+    <Property Name="PassCode" Type="varchar" MaxLength="200" />
+    <Property Name="ClientTag" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CUSTOM_VENDOR_TRANSACTION">
+    <Key>
+      <PropertyRef Name="PONumber" />
+    </Key>
+    <Property Name="PONumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="VersionPOSERA" Type="int" />
+    <Property Name="DataVersion" Type="int" />
+    <Property Name="StatusPOSERA" Type="varchar" MaxLength="1" />
+    <Property Name="RejectRevisedPOSERA" Type="varchar" MaxLength="500" />
+    <Property Name="DocumentNo" Type="varchar" MaxLength="15" />
+    <Property Name="AIMaterialNumber" Type="varchar" MaxLength="18" />
+    <Property Name="SERAMaterialNumber" Type="varchar" MaxLength="50" />
+    <Property Name="SERAMaterialDescription" Type="varchar" MaxLength="40" />
+    <Property Name="AIColor" Type="varchar" MaxLength="30" />
+    <Property Name="SERAColor" Type="varchar" MaxLength="20" />
+    <Property Name="QuotationNo" Type="varchar" MaxLength="15" />
+    <Property Name="SalesOrderNo" Type="varchar" MaxLength="15" />
+    <Property Name="SalesOrderStatus" Type="bit" />
+    <Property Name="Currency" Type="varchar" MaxLength="3" />
+    <Property Name="Year" Type="int" />
+    <Property Name="BillingStatus" Type="bit" />
+    <Property Name="CancellationReason" Type="varchar" MaxLength="500" />
+    <Property Name="BSTKBNo" Type="varchar" MaxLength="25" />
+    <Property Name="RevisiSTNK" Type="datetime" />
+    <Property Name="NamaPenerima" Type="varchar" MaxLength="30" />
+    <Property Name="AlamatPenerima" Type="varchar" MaxLength="40" />
+    <Property Name="StatusCancel" Type="varchar" MaxLength="1" />
+    <Property Name="ReasonRejection" Type="varchar" MaxLength="500" />
+    <Property Name="AmountKuitansiDC" Type="decimal" Precision="17" Scale="4" />
+    <Property Name="BusinessAreaCode" Type="varchar" MaxLength="4" />
+    <Property Name="CustomerNo" Type="varchar" MaxLength="10" />
+    <Property Name="NomorSpes" Type="varchar" MaxLength="35" />
+    <Property Name="SalesmanNumber" Type="varchar" MaxLength="10" />
+    <Property Name="KuitansiNoRef" Type="varchar" MaxLength="15" />
+    <Property Name="KuitansiDateRef" Type="datetime" />
+    <Property Name="DownloadDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="20" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CUSTOMBPKB">
+    <Key>
+      <PropertyRef Name="PONUMBER" />
+    </Key>
+    <Property Name="PONUMBER" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TGLPROMISEDELIVERYBPKB" Type="date" />
+    <Property Name="ACTUALRECEIVEDBPKBDICAB" Type="datetime" />
+    <Property Name="ACTUALRECEIVEDBPKBDIHO" Type="datetime" />
+    <Property Name="DETAILPROBLEM" Type="varchar" MaxLength="100" />
+    <Property Name="DELIVERYDATEBPKB" Type="datetime" />
+    <Property Name="KETSURATUBAHBENTUK" Type="varchar" MaxLength="100" />
+    <Property Name="KETBPKB" Type="varchar" MaxLength="50" />
+    <Property Name="KETKAROSERI" Type="varchar" MaxLength="50" />
+    <Property Name="LOKASIBPKB" Type="varchar" MaxLength="50" />
+    <Property Name="NOFAKTUR" Type="varchar" MaxLength="50" />
+    <Property Name="NOFORMULIRA" Type="varchar" MaxLength="50" />
+    <Property Name="NOSERTIFIKAT" Type="varchar" MaxLength="50" />
+    <Property Name="NOSURATUBAHBENTUK" Type="varchar" MaxLength="50" />
+    <Property Name="NOSERTIFIKATREGUJITIPE" Type="varchar" MaxLength="50" />
+    <Property Name="NOBPKB" Type="varchar" MaxLength="50" />
+    <Property Name="NOPOLISI" Type="varchar" MaxLength="50" />
+    <Property Name="POSISIBPKB" Type="varchar" MaxLength="50" />
+    <Property Name="PROGRESBPKB" Type="varchar" MaxLength="50" />
+    <Property Name="STATUSBPKB" Type="varchar" MaxLength="50" />
+    <Property Name="TGLFAKTUR" Type="datetime" />
+    <Property Name="TGLFORMULIRA" Type="datetime" />
+    <Property Name="TGLSERAHBPKB" Type="datetime" />
+    <Property Name="TGLSERTIFIKAT" Type="datetime" />
+    <Property Name="TGLSURATUBAHBENTUK" Type="datetime" />
+    <Property Name="TGLGRBPKB" Type="datetime" />
+    <Property Name="TGLSTNK" Type="datetime" />
+    <Property Name="TGLBPKBDIKIRIMKEMBALI" Type="datetime" />
+    <Property Name="ACTUALDELIVERYBPKBTOFINANCE" Type="datetime" />
+    <Property Name="DATEDELIVERYTOBRANCHORVENDOR" Type="datetime" />
+    <Property Name="REMARKSDETAILPROBLEM" Type="varchar" MaxLength="500" />
+    <Property Name="ACTUALRECEIVEDBPKBHOBACK" Type="datetime" />
+    <Property Name="STCKDATE" Type="datetime" />
+    <Property Name="NOPOLISI_INPUT" Type="varchar" MaxLength="50" />
+    <Property Name="TGLSTNK_INPUT" Type="datetime" />
+    <Property Name="REASONREVISEBPKB" Type="varchar" MaxLength="500" />
+    <Property Name="REVISEDATE" Type="datetime" />
+    <Property Name="isRevised" Type="bit" />
+    <Property Name="NOSURATRUBAHWARNA" Type="varchar" MaxLength="50" />
+    <Property Name="TANGGALSURATRUBAHWARNA" Type="date" />
+    <Property Name="KETERANGANSURATRUBAHWARNA" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="20" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="MODIFIED_BY" Type="varchar" MaxLength="50" />
+    <Property Name="MODIFIED_DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CUSTOMGR">
+    <Key>
+      <PropertyRef Name="PONUMBER" />
+    </Key>
+    <Property Name="PONUMBER" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ACTUALRECEIVEDUNIT" Type="datetime" />
+    <Property Name="NOCHASIS" Type="varchar" MaxLength="50" />
+    <Property Name="NOENGINE" Type="varchar" MaxLength="50" />
+    <Property Name="NOEQUIP" Type="varchar" MaxLength="50" />
+    <Property Name="NOEQUIPBARU" Type="varchar" MaxLength="50" />
+    <Property Name="TGLCREATEEQUIP" Type="datetime" />
+    <Property Name="TGLGRSAP" Type="datetime" />
+    <Property Name="NAMAPEMILIK" Type="varchar" MaxLength="50" />
+    <Property Name="VENDORNAMEAP" Type="varchar" MaxLength="50" />
+    <Property Name="STATUSDELIVERYUNIT" Type="varchar" MaxLength="50" />
+    <Property Name="MODIFIED_BY" Type="varchar" MaxLength="50" />
+    <Property Name="MODIFIED_DATE" Type="datetime" />
+    <Property Name="ACTUALRECEIVEDUNITINBDEL" Type="datetime" />
+    <Property Name="NOCHASIS_INPUT" Type="varchar" MaxLength="50" />
+    <Property Name="NOENGINE_INPUT" Type="varchar" MaxLength="50" />
+    <Property Name="NAMAPEMILIK_INPUT" Type="varchar" MaxLength="50" />
+    <Property Name="xmlStatus" Type="varchar" MaxLength="50" />
+    <Property Name="xmlCreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="xmlCreatedDate" Type="datetime" />
+    <Property Name="xmlModifiedBy" Type="varchar" MaxLength="100" />
+    <Property Name="xmlModifiedDate" Type="datetime" />
+    <Property Name="xmlStatusEngine" Type="varchar" MaxLength="50" />
+    <Property Name="xmlModifiedDateEngine" Type="datetime" />
+    <Property Name="xmlModifiedByEngine" Type="varchar" MaxLength="100" />
+    <Property Name="xmlCreatedDateEngine" Type="datetime" />
+    <Property Name="xmlCreatedByEngine" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CUSTOMIR">
+    <Key>
+      <PropertyRef Name="PONUMBER" />
+    </Key>
+    <Property Name="PONUMBER" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ACTUALRECEIVEDINV" Type="datetime" />
+    <Property Name="HARGADELIVERYAP" Type="varchar" MaxLength="50" />
+    <Property Name="INVDATE" Type="datetime" />
+    <Property Name="INVNO" Type="varchar" MaxLength="50" />
+    <Property Name="KETBAYAR" Type="varchar" MaxLength="50" />
+    <Property Name="NOFAKTURPAJAK" Type="varchar" MaxLength="50" />
+    <Property Name="TGLSERAHTAGIHAN" Type="datetime" />
+    <Property Name="TERMOFPAYMENT" Type="int" />
+    <Property Name="NOAP" Type="varchar" MaxLength="50" />
+    <Property Name="TGLPEMBAYARAN" Type="datetime" />
+    <Property Name="KETTAGIHAN" Type="varchar" MaxLength="50" />
+    <Property Name="ESTIMATEDPAYMENTDATE" Type="datetime" />
+    <Property Name="INVOICESTATUS" Type="varchar" MaxLength="50" />
+    <Property Name="REASONREJECTIONINVOICE" Type="varchar" MaxLength="100" />
+    <Property Name="BPHNUMBER" Type="varchar" MaxLength="50" />
+    <Property Name="MODIFIED_BY" Type="varchar" MaxLength="50" />
+    <Property Name="MODIFIED_DATE" Type="datetime" />
+    <Property Name="REVISEDATE" Type="datetime" />
+    <Property Name="isRevised" Type="bit" />
+    <Property Name="xmlStatus" Type="varchar" MaxLength="50" />
+    <Property Name="xmlCreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="xmlCreatedDate" Type="datetime" />
+    <Property Name="xmlModifiedBy" Type="varchar" MaxLength="100" />
+    <Property Name="xmlModifiedDate" Type="datetime" />
+    <Property Name="xmlModifiedDateInvNo" Type="datetime" />
+    <Property Name="xmlModifiedByInvNo" Type="varchar" MaxLength="100" />
+    <Property Name="xmlCreatedDateInvNo" Type="datetime" />
+    <Property Name="xmlCreatedByInvNo" Type="varchar" MaxLength="100" />
+    <Property Name="xmlModifiedDateFaktur" Type="datetime" />
+    <Property Name="xmlModifiedByFaktur" Type="varchar" MaxLength="100" />
+    <Property Name="xmlCreatedDateFaktur" Type="datetime" />
+    <Property Name="xmlCreatedByFaktur" Type="varchar" MaxLength="100" />
+    <Property Name="xmlStatusInvNo" Type="varchar" MaxLength="50" />
+    <Property Name="xmlStatusByEngine" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'eprocurement.dbo.CUSTOMPO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CUSTOMPO">
+    <Key>
+      <PropertyRef Name="PONUMBER" />
+    </Key>
+    <Property Name="PONUMBER" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TGLPO" Type="datetime" />
+    <Property Name="PRNUMBERSAP" Type="varchar" MaxLength="50" />
+    <Property Name="HARGAOPTIONAL" Type="float" />
+    <Property Name="TGLKIRIMCABVENDOR" Type="datetime" />
+    <Property Name="KETPO" Type="varchar" MaxLength="50" />
+    <Property Name="PPNOPTIONAL" Type="varchar" MaxLength="50" />
+    <Property Name="CABANGVENDOR" Type="varchar" MaxLength="50" />
+    <Property Name="DESCCHANGEPO" Type="varchar" MaxLength="100" />
+    <Property Name="DESCPO" Type="varchar" MaxLength="50" />
+    <Property Name="DISC" Type="float" />
+    <Property Name="HARGABBN" Type="float" />
+    <Property Name="HARGADPP" Type="float" />
+    <Property Name="HARGAPPNUNIT" Type="float" />
+    <Property Name="MAINTYPEUNIT" Type="varchar" MaxLength="50" />
+    <Property Name="PRICELIST" Type="float" />
+    <Property Name="PROMISEDLVDATEPO" Type="datetime" />
+    <Property Name="TGLCHANGEPO" Type="datetime" />
+    <Property Name="VENDORID" Type="varchar" MaxLength="10" />
+    <Property Name="VENDORNAME" Type="varchar" MaxLength="50" />
+    <Property Name="BIAYAPENGIRIMAN" Type="float" />
+    <Property Name="CITY" Type="varchar" MaxLength="50" />
+    <Property Name="BENTUKAKHIRUNIT" Type="varchar" MaxLength="50" />
+    <Property Name="HISTORYPO" Type="varchar" MaxLength="50" />
+    <Property Name="TGLMASUKKAROSERI" Type="datetime" />
+    <Property Name="TGLSELESAIKAROSERI" Type="datetime" />
+    <Property Name="PURCHASESTATUS" Type="varchar" MaxLength="50" />
+    <Property Name="POSTATUSID" Type="varchar" MaxLength="50" />
+    <Property Name="ONTHEROADPRICE" Type="float" />
+    <Property Name="EXPECTEDDATEDELIVERED" Type="datetime" />
+    <Property Name="COLOR" Type="varchar" MaxLength="50" />
+    <Property Name="UNITDELIVERYADDRESS" Type="varchar" MaxLength="100" />
+    <Property Name="ACTUALDATEDELIVEREDUNIT" Type="datetime" />
+    <Property Name="REMARKSPOVENDOR" Type="varchar" MaxLength="500" />
+    <Property Name="REMARKSCARROSSERIE" Type="varchar" MaxLength="500" />
+    <Property Name="ACTUALRECEIVEDBPKBHOFROMBRANCH" Type="datetime" />
+    <Property Name="DELIVERYCOST" Type="float" />
+    <Property Name="CARROSERIEVENDORNAME" Type="varchar" MaxLength="50" />
+    <Property Name="ACCESORIESADDRESS" Type="varchar" MaxLength="500" />
+    <Property Name="REMARKS" Type="varchar" MaxLength="500" />
+    <Property Name="DODATE" Type="datetime" />
+    <Property Name="DONUMBER" Type="varchar" MaxLength="50" />
+    <Property Name="MODIFIED_BY" Type="varchar" MaxLength="50" />
+    <Property Name="MODIFIED_DATE" Type="datetime" />
+    <Property Name="HARGABBN_INPUT" Type="float" />
+    <Property Name="HARGADPP_INPUT" Type="float" />
+    <Property Name="HARGAPPNUNIT_INPUT" Type="float" />
+    <Property Name="CARMODEL" Type="varchar" MaxLength="50" />
+    <Property Name="CARSERIES" Type="varchar" MaxLength="50" />
+    <Property Name="COMPANYCODE" Type="varchar" MaxLength="100" />
+    <Property Name="COMPANYNAME" Type="varchar" MaxLength="100" />
+    <Property Name="ATMT" Type="varchar" MaxLength="50" />
+    <Property Name="KODECABANG" Type="varchar" MaxLength="30" />
+    <Property Name="CABANGTRAC" Type="varchar" MaxLength="50" />
+    <Property Name="MERK" Type="varchar" MaxLength="50" />
+    <Property Name="TYPEUNIT" Type="varchar" MaxLength="50" />
+    <Property Name="VARIAN" Type="varchar" MaxLength="50" />
+    <Property Name="VARIAN_INPUT" Type="varchar" MaxLength="50" />
+    <Property Name="MERK_INPUT" Type="varchar" MaxLength="50" />
+    <Property Name="POQTY" Type="int" />
+    <Property Name="PRSAP" Type="varchar" MaxLength="50" />
+    <Property Name="REASONREVISEDBYVENDOR" Type="varchar" MaxLength="500" />
+    <Property Name="REVISEDDATE" Type="datetime" />
+    <Property Name="isRevised" Type="bit" />
+    <Property Name="TGLGI" Type="datetime" />
+    <Property Name="RefDocNo" Type="varchar" MaxLength="50" />
+    <Property Name="CODEGROUP" Type="varchar" MaxLength="20" />
+    <Property Name="TOTALPAYMENT" Type="decimal" Precision="17" Scale="4" />
+    <Property Name="LOCALPRICE" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CURRENCY" Type="varchar" MaxLength="3" />
+    <Property Name="CLIENT" Type="varchar" MaxLength="50" />
+    <Property Name="FISCALYEAR" Type="varchar" MaxLength="4" />
+    <Property Name="PROPOSALNUMBER" Type="varchar" MaxLength="50" />
+    <Property Name="ITEM" Type="varchar" MaxLength="50" />
+    <Property Name="APPROVALDATETIME" Type="datetime" />
+    <Property Name="flagRejection" Type="int" />
+    <Property Name="PICKAROSERI" Type="varchar" MaxLength="40" />
+    <Property Name="NOTELEPONKAROSERI" Type="varchar" MaxLength="30" />
+    <Property Name="BENTUKKAROSERI" Type="varchar" MaxLength="50" />
+    <Property Name="SHIPPINGADDRESS1" Type="varchar" MaxLength="132" />
+    <Property Name="SHIPPINGADDRESS2" Type="varchar" MaxLength="132" />
+    <Property Name="SHIPPINGADDRESS3" Type="varchar" MaxLength="132" />
+    <Property Name="SHIPPINGADDRESS4" Type="varchar" MaxLength="132" />
+    <Property Name="BBNADDRESS1" Type="varchar" MaxLength="500" />
+    <Property Name="BBNADDRESS2" Type="varchar" MaxLength="132" />
+    <Property Name="BBNADDRESS3" Type="varchar" MaxLength="132" />
+    <Property Name="BBNADDRESS4" Type="varchar" MaxLength="132" />
+    <Property Name="xmlModifiedDate" Type="datetime" />
+    <Property Name="xmlModifiedBy" Type="varchar" MaxLength="100" />
+    <Property Name="xmlCreatedDate" Type="datetime" />
+    <Property Name="xmlCreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="xmlStatus" Type="varchar" MaxLength="50" />
+    <Property Name="updateqty" Type="varchar" MaxLength="10" />
+    <Property Name="materialnumber" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="sp_UpdateCustomPOStatusPOId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PONUMBER" Type="varchar" Mode="In" />
+    <Parameter Name="POSTATUSID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_UpdateS02002_HS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PONUMBER" Type="varchar" Mode="In" />
+    <Parameter Name="VERSIONPOSERA" Type="int" Mode="In" />
+    <Parameter Name="DATAVERSION" Type="int" Mode="In" />
+    <Parameter Name="STATUSPOSERA" Type="varchar" Mode="In" />
+    <Parameter Name="REJECTREVISEDPOSERA" Type="varchar" Mode="In" />
+    <Parameter Name="DOCUMENTNO" Type="varchar" Mode="In" />
+    <Parameter Name="AIMATERIALNUMBER" Type="varchar" Mode="In" />
+    <Parameter Name="SERAMATERIALNUMBER" Type="varchar" Mode="In" />
+    <Parameter Name="SERAMATERIALDESCRIPTION" Type="varchar" Mode="In" />
+    <Parameter Name="AICOLOR" Type="varchar" Mode="In" />
+    <Parameter Name="SERACOLOR" Type="varchar" Mode="In" />
+    <Parameter Name="QUOTATIONNO" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_UpdateS02002_IS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PONUMBER" Type="varchar" Mode="In" />
+    <Parameter Name="HARGADPP_INPUT" Type="float" Mode="In" />
+    <Parameter Name="HARGAPPNUNIT_INPUT" Type="float" Mode="In" />
+    <Parameter Name="HARGABBN_INPUT" Type="float" Mode="In" />
+    <Parameter Name="DONUMBER" Type="varchar" Mode="In" />
+    <Parameter Name="DODATE" Type="datetime" Mode="In" />
+    <Parameter Name="ACTUALDATEDELIVEREDUNIT" Type="datetime" Mode="In" />
+    <Parameter Name="NOCHASIS_INPUT" Type="varchar" Mode="In" />
+    <Parameter Name="NOENGINE_INPUT" Type="varchar" Mode="In" />
+    <Parameter Name="NOFAKTUR" Type="varchar" Mode="In" />
+    <Parameter Name="TGLFAKTUR" Type="datetime" Mode="In" />
+    <Parameter Name="NOPOLISI_INPUT" Type="varchar" Mode="In" />
+    <Parameter Name="TGLSTNK_INPUT" Type="datetime" Mode="In" />
+    <Parameter Name="NOSERTIFIKAT" Type="varchar" Mode="In" />
+    <Parameter Name="TGLSERTIFIKAT" Type="datetime" Mode="In" />
+    <Parameter Name="NOFORMULIRA" Type="varchar" Mode="In" />
+    <Parameter Name="TGLFORMULIRA" Type="datetime" Mode="In" />
+    <Parameter Name="NOSERTIFIKATREGUJITIPE" Type="varchar" Mode="In" />
+    <Parameter Name="DATEDELIVERYTOBRANCHORVENDOR" Type="datetime" Mode="In" />
+    <Parameter Name="NOBPKB" Type="varchar" Mode="In" />
+    <Parameter Name="KETBPKB" Type="varchar" Mode="In" />
+    <Parameter Name="REVISEDATE" Type="datetime" Mode="In" />
+    <Parameter Name="SALESORDERNO" Type="varchar" Mode="In" />
+    <Parameter Name="SALESORDERSTATUS" Type="bit" Mode="In" />
+    <Parameter Name="CURRENCY" Type="varchar" Mode="In" />
+    <Parameter Name="YEAR" Type="int" Mode="In" />
+    <Parameter Name="BILLINGSTATUS" Type="bit" Mode="In" />
+    <Parameter Name="BSTKBNO" Type="varchar" Mode="In" />
+    <Parameter Name="REVISISTNK" Type="datetime" Mode="In" />
+    <Parameter Name="NAMAPENERIMA" Type="varchar" Mode="In" />
+    <Parameter Name="ALAMATPENERIMA" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="CUSTOM_DOWNLOAD_TRANSACTION" EntityType="Self.CUSTOM_DOWNLOAD_TRANSACTION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOM_DOWNLOAD_TRANSACTIONDATA" EntityType="Self.CUSTOM_DOWNLOAD_TRANSACTIONDATA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOM_DOWNLOAD_TRANSACTIONDATADETAIL" EntityType="Self.CUSTOM_DOWNLOAD_TRANSACTIONDATADETAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOM_LOG" EntityType="Self.CUSTOM_LOG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOM_S02002" EntityType="Self.CUSTOM_S02002" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOM_S02007" EntityType="Self.CUSTOM_S02007" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOM_USER" EntityType="Self.CUSTOM_USER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOM_VENDOR_TRANSACTION" EntityType="Self.CUSTOM_VENDOR_TRANSACTION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOMBPKB" EntityType="Self.CUSTOMBPKB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOMGR" EntityType="Self.CUSTOMGR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOMIR" EntityType="Self.CUSTOMIR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOMPO" EntityType="Self.CUSTOMPO" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[CUSTOMPO].[PONUMBER] AS [PONUMBER], 
+[CUSTOMPO].[TGLPO] AS [TGLPO], 
+[CUSTOMPO].[PRNUMBERSAP] AS [PRNUMBERSAP], 
+[CUSTOMPO].[HARGAOPTIONAL] AS [HARGAOPTIONAL], 
+[CUSTOMPO].[TGLKIRIMCABVENDOR] AS [TGLKIRIMCABVENDOR], 
+[CUSTOMPO].[KETPO] AS [KETPO], 
+[CUSTOMPO].[PPNOPTIONAL] AS [PPNOPTIONAL], 
+[CUSTOMPO].[CABANGVENDOR] AS [CABANGVENDOR], 
+[CUSTOMPO].[DESCCHANGEPO] AS [DESCCHANGEPO], 
+[CUSTOMPO].[DESCPO] AS [DESCPO], 
+[CUSTOMPO].[DISC] AS [DISC], 
+[CUSTOMPO].[HARGABBN] AS [HARGABBN], 
+[CUSTOMPO].[HARGADPP] AS [HARGADPP], 
+[CUSTOMPO].[HARGAPPNUNIT] AS [HARGAPPNUNIT], 
+[CUSTOMPO].[MAINTYPEUNIT] AS [MAINTYPEUNIT], 
+[CUSTOMPO].[PRICELIST] AS [PRICELIST], 
+[CUSTOMPO].[PROMISEDLVDATEPO] AS [PROMISEDLVDATEPO], 
+[CUSTOMPO].[TGLCHANGEPO] AS [TGLCHANGEPO], 
+[CUSTOMPO].[VENDORID] AS [VENDORID], 
+[CUSTOMPO].[VENDORNAME] AS [VENDORNAME], 
+[CUSTOMPO].[BIAYAPENGIRIMAN] AS [BIAYAPENGIRIMAN], 
+[CUSTOMPO].[CITY] AS [CITY], 
+[CUSTOMPO].[BENTUKAKHIRUNIT] AS [BENTUKAKHIRUNIT], 
+[CUSTOMPO].[HISTORYPO] AS [HISTORYPO], 
+[CUSTOMPO].[TGLMASUKKAROSERI] AS [TGLMASUKKAROSERI], 
+[CUSTOMPO].[TGLSELESAIKAROSERI] AS [TGLSELESAIKAROSERI], 
+[CUSTOMPO].[PURCHASESTATUS] AS [PURCHASESTATUS], 
+[CUSTOMPO].[POSTATUSID] AS [POSTATUSID], 
+[CUSTOMPO].[ONTHEROADPRICE] AS [ONTHEROADPRICE], 
+[CUSTOMPO].[EXPECTEDDATEDELIVERED] AS [EXPECTEDDATEDELIVERED], 
+[CUSTOMPO].[COLOR] AS [COLOR], 
+[CUSTOMPO].[UNITDELIVERYADDRESS] AS [UNITDELIVERYADDRESS], 
+[CUSTOMPO].[ACTUALDATEDELIVEREDUNIT] AS [ACTUALDATEDELIVEREDUNIT], 
+[CUSTOMPO].[REMARKSPOVENDOR] AS [REMARKSPOVENDOR], 
+[CUSTOMPO].[REMARKSCARROSSERIE] AS [REMARKSCARROSSERIE], 
+[CUSTOMPO].[ACTUALRECEIVEDBPKBHOFROMBRANCH] AS [ACTUALRECEIVEDBPKBHOFROMBRANCH], 
+[CUSTOMPO].[DELIVERYCOST] AS [DELIVERYCOST], 
+[CUSTOMPO].[CARROSERIEVENDORNAME] AS [CARROSERIEVENDORNAME], 
+[CUSTOMPO].[ACCESORIESADDRESS] AS [ACCESORIESADDRESS], 
+[CUSTOMPO].[REMARKS] AS [REMARKS], 
+[CUSTOMPO].[DODATE] AS [DODATE], 
+[CUSTOMPO].[DONUMBER] AS [DONUMBER], 
+[CUSTOMPO].[MODIFIED_BY] AS [MODIFIED_BY], 
+[CUSTOMPO].[MODIFIED_DATE] AS [MODIFIED_DATE], 
+[CUSTOMPO].[HARGABBN_INPUT] AS [HARGABBN_INPUT], 
+[CUSTOMPO].[HARGADPP_INPUT] AS [HARGADPP_INPUT], 
+[CUSTOMPO].[HARGAPPNUNIT_INPUT] AS [HARGAPPNUNIT_INPUT], 
+[CUSTOMPO].[CARMODEL] AS [CARMODEL], 
+[CUSTOMPO].[CARSERIES] AS [CARSERIES], 
+[CUSTOMPO].[COMPANYCODE] AS [COMPANYCODE], 
+[CUSTOMPO].[COMPANYNAME] AS [COMPANYNAME], 
+[CUSTOMPO].[ATMT] AS [ATMT], 
+[CUSTOMPO].[KODECABANG] AS [KODECABANG], 
+[CUSTOMPO].[CABANGTRAC] AS [CABANGTRAC], 
+[CUSTOMPO].[MERK] AS [MERK], 
+[CUSTOMPO].[TYPEUNIT] AS [TYPEUNIT], 
+[CUSTOMPO].[VARIAN] AS [VARIAN], 
+[CUSTOMPO].[VARIAN_INPUT] AS [VARIAN_INPUT], 
+[CUSTOMPO].[MERK_INPUT] AS [MERK_INPUT], 
+[CUSTOMPO].[POQTY] AS [POQTY], 
+[CUSTOMPO].[PRSAP] AS [PRSAP], 
+[CUSTOMPO].[REASONREVISEDBYVENDOR] AS [REASONREVISEDBYVENDOR], 
+[CUSTOMPO].[REVISEDDATE] AS [REVISEDDATE], 
+[CUSTOMPO].[isRevised] AS [isRevised], 
+[CUSTOMPO].[TGLGI] AS [TGLGI], 
+[CUSTOMPO].[RefDocNo] AS [RefDocNo], 
+[CUSTOMPO].[CODEGROUP] AS [CODEGROUP], 
+[CUSTOMPO].[TOTALPAYMENT] AS [TOTALPAYMENT], 
+[CUSTOMPO].[LOCALPRICE] AS [LOCALPRICE], 
+[CUSTOMPO].[CURRENCY] AS [CURRENCY], 
+[CUSTOMPO].[CLIENT] AS [CLIENT], 
+[CUSTOMPO].[FISCALYEAR] AS [FISCALYEAR], 
+[CUSTOMPO].[PROPOSALNUMBER] AS [PROPOSALNUMBER], 
+[CUSTOMPO].[ITEM] AS [ITEM], 
+[CUSTOMPO].[APPROVALDATETIME] AS [APPROVALDATETIME], 
+[CUSTOMPO].[flagRejection] AS [flagRejection], 
+[CUSTOMPO].[PICKAROSERI] AS [PICKAROSERI], 
+[CUSTOMPO].[NOTELEPONKAROSERI] AS [NOTELEPONKAROSERI], 
+[CUSTOMPO].[BENTUKKAROSERI] AS [BENTUKKAROSERI], 
+[CUSTOMPO].[SHIPPINGADDRESS1] AS [SHIPPINGADDRESS1], 
+[CUSTOMPO].[SHIPPINGADDRESS2] AS [SHIPPINGADDRESS2], 
+[CUSTOMPO].[SHIPPINGADDRESS3] AS [SHIPPINGADDRESS3], 
+[CUSTOMPO].[SHIPPINGADDRESS4] AS [SHIPPINGADDRESS4], 
+[CUSTOMPO].[BBNADDRESS1] AS [BBNADDRESS1], 
+[CUSTOMPO].[BBNADDRESS2] AS [BBNADDRESS2], 
+[CUSTOMPO].[BBNADDRESS3] AS [BBNADDRESS3], 
+[CUSTOMPO].[BBNADDRESS4] AS [BBNADDRESS4], 
+[CUSTOMPO].[xmlModifiedDate] AS [xmlModifiedDate], 
+[CUSTOMPO].[xmlModifiedBy] AS [xmlModifiedBy], 
+[CUSTOMPO].[xmlCreatedDate] AS [xmlCreatedDate], 
+[CUSTOMPO].[xmlCreatedBy] AS [xmlCreatedBy], 
+[CUSTOMPO].[xmlStatus] AS [xmlStatus], 
+[CUSTOMPO].[updateqty] AS [updateqty], 
+[CUSTOMPO].[materialnumber] AS [materialnumber]
+FROM [dbo].[CUSTOMPO] AS [CUSTOMPO]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
